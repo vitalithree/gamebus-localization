@@ -28,14 +28,14 @@ See the scheme of localization modules merge operation:
 
 ```mermaid
 graph LR
-    subgraph Compile-time at GameBus sources
+    subgraph gamebus-side[Compile-time at GameBus sources]
         base(Base module) --> result-c((Compile-time translations))
         properties-c(PROPERTIES module) --> result-c
         descriptors-c(GAMEDESCRIPTORS module) --> result-c
         minigames-c(MINIGAMES module) --> result-c
     end
 
-    subgraph Expandable modules at GitHub
+    subgraph external[Expandable modules at GitHub]
         properties-e(PROPERTIES module)
         descriptors-e(GAMEDESCRIPTORS module)
         minigames-e(MINIGAMES module)
@@ -47,11 +47,13 @@ graph LR
     minigames-e --> result-f
     
 
+     classDef grey fill:#eee
      classDef orange fill:#f96
      classDef green fill:#9f6
      classDef purple fill:#96f
      classDef pink fill:#f69
      classDef bold stroke-width:4px
+     class gamebus-side grey
      class base orange
      class properties-c,properties-e green
      class descriptors-c,descriptors-e purple
