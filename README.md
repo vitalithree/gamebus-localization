@@ -1,6 +1,10 @@
 # gamebus-localization
 This repository provides localization expansions for GameBus application.
 
+GameDescriptors, Minigames and Properties are dynamic collections that are growing at runtime as a result of contributions from core team and external developers (minigames).
+
+To make it work we have designed this way of managing localization strings.
+
 Localizations consist of a base and expandable modules.
 
 Base module contains strings for base app UI, for example: button captions etc.
@@ -16,6 +20,12 @@ There are several modules that are expected to expand with time:
 Check corresponding folders for localization  files.
 
 ## Merge scheme
+Localizations managed by core team are sitting in Front-End repo and are shipped with the app.
+
+But the localizations added during the lifetime of application (external developer contributions, for example) are loaded dynamically at the runtime from GitHub CDN.
+
+See the scheme of localization modules merge operation:
+
 ```mermaid
 graph LR
     subgraph Compile-time at GameBus sources
